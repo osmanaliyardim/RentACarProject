@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentACarProject.DataAccess"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentACarProject.Core", "RentACarProject.Core\RentACarProject.Core.csproj", "{21CA8DAB-71B8-43D5-AB18-7DD452B1FEE9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{EDFA935B-45FD-4B9B-BD51-C7D9CFF6E51C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB-Script", "DB-Script", "{EDFA935B-45FD-4B9B-BD51-C7D9CFF6E51C}"
 	ProjectSection(SolutionItems) = preProject
 		RentACarProjectDB.sql = RentACarProjectDB.sql
 	EndProjectSection
