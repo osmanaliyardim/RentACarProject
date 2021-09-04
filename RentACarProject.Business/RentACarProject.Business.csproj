@@ -5,11 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\" />
+    <PackageReference Include="Autofac" Version="6.2.0" />
+    <PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
+    <PackageReference Include="FluentValidation" Version="10.3.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.9" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RentACarProject.Core\RentACarProject.Core.csproj" />
+    <ProjectReference Include="..\RentACarProject.DataAccess\RentACarProject.DataAccess.csproj" />
     <ProjectReference Include="..\RentACarProject.Entities\RentACarProject.Entities.csproj" />
   </ItemGroup>
 

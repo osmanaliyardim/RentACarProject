@@ -1,10 +1,7 @@
 ﻿using RentACarProject.Core.Utilities.Results.Abstract;
+using RentACarProject.Entities.DTOs;
 using RentACarProject.Entity.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentACarProject.Business.Abstract
 {
@@ -17,5 +14,10 @@ namespace RentACarProject.Business.Abstract
         IResult Add(Car car);
         IResult Update(Car car);
         IResult Delete(Car car);
+
+        IDataResult<List<CarDetailDto>> GetCarDetails();
+        IDataResult<List<CarDetailDto>> GetCarDetailsByBrandName(string brandName);
+        IDataResult<List<CarDetailDto>> GetCarDetailsByColorName(string colorName);
+        IDataResult<List<CarDetailDto>> GetCarDetailsByColorNameAndBrandName(string colorName, string brandName);
     }
 }
