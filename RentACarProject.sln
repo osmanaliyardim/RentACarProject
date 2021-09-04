@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentACarProject.Entity", "RentACarProject.Entities\RentACarProject.Entity.csproj", "{A6841027-97E0-4023-BF2F-AC0D6D020F5C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentACarProject.Entities", "RentACarProject.Entities\RentACarProject.Entities.csproj", "{A6841027-97E0-4023-BF2F-AC0D6D020F5C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentACarProject.Business", "RentACarProject.Business\RentACarProject.Business.csproj", "{E30C4455-3242-47B8-B27C-C7F7F68D1989}"
 EndProject
