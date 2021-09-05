@@ -39,41 +39,49 @@ namespace RentACarProject.Business.Concrete
             return new SuccessResult(Messages.CarDeleted);
         }
 
+        [CacheAspect(120)]
         public IDataResult<List<Car>> GetAll()
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListed);
         }
 
+        [CacheAspect]
         public IDataResult<Car> GetById()
         {
             throw new System.NotImplementedException();
         }
 
+        [CacheAspect]
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             throw new System.NotImplementedException();
         }
 
+        [CacheAspect]
         public IDataResult<List<CarDetailDto>> GetCarDetailsByBrandName(string brandName)
         {
             throw new System.NotImplementedException();
         }
 
+        [CacheAspect]
         public IDataResult<List<CarDetailDto>> GetCarDetailsByColorName(string colorName)
         {
             throw new System.NotImplementedException();
         }
 
+        [CacheAspect]
         public IDataResult<List<CarDetailDto>> GetCarDetailsByColorNameAndBrandName(string colorName, string brandName)
         {
             throw new System.NotImplementedException();
         }
 
+        [CacheAspect]
         public IDataResult<Car> GetCarsByBrandId(int brandId)
         {
             throw new System.NotImplementedException();
         }
 
+        [CacheAspect]
         public IDataResult<Car> GetCarsByColorId(int colorId)
         {
             throw new System.NotImplementedException();

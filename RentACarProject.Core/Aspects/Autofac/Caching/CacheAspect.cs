@@ -12,7 +12,7 @@ namespace RentACarProject.Core.Aspects.Autofac.Caching
         private readonly ICacheManager _cacheManager;
         private readonly int _duration;
 
-        public CacheAspect(int duration)
+        public CacheAspect(int duration = 60)
         {
             _duration = duration;
             _cacheManager = ServiceTool.ServiceProvider.GetService<ICacheManager>();
