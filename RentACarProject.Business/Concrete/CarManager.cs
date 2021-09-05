@@ -2,6 +2,7 @@
 using RentACarProject.Business.BusinessAspects.Autofac;
 using RentACarProject.Business.Constants;
 using RentACarProject.Business.ValidationRules.FluentValidation;
+using RentACarProject.Core.Aspects.Autofac.Caching;
 using RentACarProject.Core.Aspects.Autofac.Validation;
 using RentACarProject.Core.Utilities.Results.Abstract;
 using RentACarProject.Core.Utilities.Results.Concrete;
@@ -21,14 +22,17 @@ namespace RentACarProject.Business.Concrete
             _carDal = carDal;
         }
 
-        [ValidationAspect(typeof(CarValidator))]
-        [SecuredOperation("car.add,admin,moderator")]
+        [ValidationAspect(typeof(CarValidator), Priority = 2)]
+        [SecuredOperation("car.add,admin,moderator", Priority = 1)]
+        [CacheRemoveAspect("ICarService.Get", Priority = 3)] //Eğer başarıyla ekleme yapılırsa, Get ile başlayan tüm operasyonları bellekten uçur
         public IResult Add(Car car)
         {
             _carDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
         }
 
+        [SecuredOperation("car.delete,admin,moderator")]
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
@@ -75,6 +79,9 @@ namespace RentACarProject.Business.Concrete
             throw new System.NotImplementedException();
         }
 
+        [SecuredOperation("car.delete,admin,moderator")]
+        [ValidationAspect(typeof(CarValidator))]
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult Update(Car car)
         {
             _carDal.Update(car);
