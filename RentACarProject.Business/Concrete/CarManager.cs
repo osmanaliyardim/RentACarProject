@@ -1,4 +1,5 @@
 ﻿using RentACarProject.Business.Abstract;
+using RentACarProject.Business.BusinessAspects.Autofac;
 using RentACarProject.Business.Constants;
 using RentACarProject.Business.ValidationRules.FluentValidation;
 using RentACarProject.Core.Aspects.Autofac.Validation;
@@ -21,6 +22,7 @@ namespace RentACarProject.Business.Concrete
         }
 
         [ValidationAspect(typeof(CarValidator))]
+        [SecuredOperation("car.add,admin,moderator")]
         public IResult Add(Car car)
         {
             _carDal.Add(car);
