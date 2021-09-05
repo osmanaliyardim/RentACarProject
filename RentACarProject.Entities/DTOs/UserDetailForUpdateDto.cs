@@ -2,7 +2,7 @@
 
 namespace RentACarProject.Entities.DTOs
 {
-    public class UserDetailForUpdate : IDto
+    public class UserDetailForUpdateDto : IDto
     {
         public int Id { get; set; }
         public int CustomerId { get; set; }
