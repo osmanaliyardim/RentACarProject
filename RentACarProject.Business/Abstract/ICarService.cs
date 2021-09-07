@@ -8,9 +8,9 @@ namespace RentACarProject.Business.Abstract
     public interface ICarService
     {
         IDataResult<List<Car>> GetAll();
-        IDataResult<Car> GetById();
-        IDataResult<Car> GetCarsByBrandId(int brandId);
-        IDataResult<Car> GetCarsByColorId(int colorId);
+        IDataResult<Car> GetById(int id);
+        IDataResult<List<Car>> GetCarsByBrandId(int brandId);
+        IDataResult<List<Car>> GetCarsByColorId(int colorId);
         IResult Add(Car car);
         IResult Update(Car car);
         IResult Delete(Car car);

@@ -20,6 +20,7 @@ namespace RentACarProject.Business.Constants
         public static string FindeksUpdated = "Findeks skoru başarıyla güncellendi!";
         public static string FindeksDeleted = "Findeks skoru başarıyla silindi!";
         public static string FindeksNotFound = "Findeks skoru bulunamadı!";
+        public static string FindeksNotEnoughForCar = "Findeks skoru araç için yeterli değil!";
 
         public static string UserAdded = "Kullanıcı başarıyla eklendi!";
         public static string UserUpdated = "Kullanıcı başarıyla güncellendi!";
@@ -47,5 +48,21 @@ namespace RentACarProject.Business.Constants
         public static string CarImageAdded = "Araç resmi başarıyla eklendi!";
         public static string CarImageUpdated = "Araç resmi başarıyla güncellendi!";
         public static string CarImageDeleted = "Araç resmi başarıyla silindi!";
+
+        public static string ColorAdded = "Renk başarıyla eklendi!";
+        public static string ColorUpdated = "Renk başarıyla güncellendi!";
+        public static string ColorDeleted = "Renk başarıyla silindi!";
+
+        public static string CreditCardAdded = "Kredi kartı başarıyla eklendi!";
+        public static string CreditCardDeleted = "Kredi kartı başarıyla silindi!";
+
+        public static string PaymentFailed = "Ödeme işlemi başarısız oldu!";
+        public static string PaymentSuccessfull = "Ödeme işlemi başarıyla tamamlandı!";
+
+        public static string RentalAdded = "Kiralama ekleme başarılı!";
+        public static string RentalUpdated = "Kiralama güncellemesi başarılı!";
+        public static string RentalDeleted = "Kiralama silme başarılı!";
+        public static string RentalUndeliveredCar = "Araç henüz teslim edilmeye uygun değil!";
+        public static string RentalNotAvailable = "Kiralama hazır değil!";
     }
 }

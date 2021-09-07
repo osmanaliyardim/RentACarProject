@@ -1,5 +1,9 @@
 ﻿using RentACarProject.Business.Abstract;
+using RentACarProject.Business.BusinessAspects.Autofac;
+using RentACarProject.Business.Constants;
 using RentACarProject.Core.Utilities.Results.Abstract;
+using RentACarProject.Core.Utilities.Results.Concrete;
+using RentACarProject.DataAccess.Abstract;
 using RentACarProject.Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,24 +15,39 @@ namespace RentACarProject.Business.Concrete
 {
     public class CreditCardManager : ICreditCardService
     {
-        public IResult Add(CreditCard creditCard)
+        private readonly ICreditCardDal _creditCardDal;
+
+        public CreditCardManager(ICreditCardDal creditCardDal)
         {
-            throw new NotImplementedException();
+            _creditCardDal = creditCardDal;
         }
 
-        public IResult Delete(CreditCard creditCard)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IDataResult<List<CreditCard>> GetAllByCustomerId(int customerId)
-        {
-            throw new NotImplementedException();
-        }
-
+        [SecuredOperation("user")]
         public IDataResult<CreditCard> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<CreditCard>(_creditCardDal.Get(c => c.Id == id));
+        }
+
+        [SecuredOperation("user")]
+        public IDataResult<List<CreditCard>> GetAllByCustomerId(int customerId)
+        {
+            return new SuccessDataResult<List<CreditCard>>(_creditCardDal.GetAll(c => c.CustomerId == customerId));
+        }
+
+        [SecuredOperation("user")]
+        public IResult Add(CreditCard creditCard)
+        {
+            _creditCardDal.Add(creditCard);
+
+            return new SuccessResult(Messages.CreditCardAdded);
+        }
+
+        [SecuredOperation("user")]
+        public IResult Delete(CreditCard creditCard)
+        {
+            _creditCardDal.Delete(creditCard);
+
+            return new SuccessResult(Messages.CreditCardDeleted);
         }
     }
 }

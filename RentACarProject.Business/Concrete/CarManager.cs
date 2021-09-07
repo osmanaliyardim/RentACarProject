@@ -47,45 +47,43 @@ namespace RentACarProject.Business.Concrete
         }
 
         [CacheAspect]
-        public IDataResult<Car> GetById()
+        public IDataResult<Car> GetById(int id)
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == id));
         }
 
         [CacheAspect]
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
 
         [CacheAspect]
-        public IDataResult<List<CarDetailDto>> GetCarDetailsByBrandName(string brandName)
+        public IDataResult<List<Car>> GetCarsByBrandId(int brandId)
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == brandId));
         }
 
         [CacheAspect]
-        public IDataResult<List<CarDetailDto>> GetCarDetailsByColorName(string colorName)
+        public IDataResult<List<Car>> GetCarsByColorId(int colorId)
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == colorId));
         }
 
         [CacheAspect]
         public IDataResult<List<CarDetailDto>> GetCarDetailsByColorNameAndBrandName(string colorName, string brandName)
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(x => x.BrandName == brandName && x.ColorName == colorName));
         }
 
-        [CacheAspect]
-        public IDataResult<Car> GetCarsByBrandId(int brandId)
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByBrandName(string brandName)
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(x => x.BrandName == brandName));
         }
 
-        [CacheAspect]
-        public IDataResult<Car> GetCarsByColorId(int colorId)
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByColorName(string colorName)
         {
-            throw new System.NotImplementedException();
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(x => x.ColorName == colorName));
         }
 
         [SecuredOperation("car.update,admin,moderator")]

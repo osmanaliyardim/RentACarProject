@@ -1,5 +1,9 @@
 ﻿using RentACarProject.Business.Abstract;
+using RentACarProject.Business.BusinessAspects.Autofac;
+using RentACarProject.Business.Constants;
 using RentACarProject.Core.Utilities.Results.Abstract;
+using RentACarProject.Core.Utilities.Results.Concrete;
+using RentACarProject.DataAccess.Abstract;
 using RentACarProject.Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,29 +15,45 @@ namespace RentACarProject.Business.Concrete
 {
     public class ColorManager : IColorService
     {
-        public IResult Add(Color color)
-        {
-            throw new NotImplementedException();
-        }
+        private readonly IColorDal _colorDal;
 
-        public IResult Delete(Color color)
+        public ColorManager(IColorDal colorDal)
         {
-            throw new NotImplementedException();
-        }
-
-        public IDataResult<List<Color>> GetAll()
-        {
-            throw new NotImplementedException();
+            _colorDal = colorDal;
         }
 
         public IDataResult<Color> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Color>(_colorDal.Get(c => c.Id == id));
         }
 
+        public IDataResult<List<Color>> GetAll()
+        {
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
+        }
+
+        [SecuredOperation("color.add,admin,moderator")]
+        public IResult Add(Color color)
+        {
+            _colorDal.Add(color);
+
+            return new SuccessResult(Messages.ColorAdded);
+        }
+
+        [SecuredOperation("color.add,admin,moderator")]
         public IResult Update(Color color)
         {
-            throw new NotImplementedException();
+            _colorDal.Update(color);
+
+            return new SuccessResult(Messages.ColorUpdated);
+        }
+
+        [SecuredOperation("color.add,admin,moderator")]
+        public IResult Delete(Color color)
+        {
+            _colorDal.Delete(color);
+
+            return new SuccessResult(Messages.ColorDeleted);
         }
     }
 }
