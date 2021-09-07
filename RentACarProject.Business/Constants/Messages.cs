@@ -38,5 +38,14 @@ namespace RentACarProject.Business.Constants
         public static string OperationClaimAdded = "Operasyon yetkisi eklendi!";
         public static string OperationClaimUpdated = "Operasyon yetkisi güncellendi!";
         public static string OperationClaimDeleted = "Operasyon yetkisi silindi!";
+
+        public static string BrandAdded = "Marka başarıyla eklendi!";
+        public static string BrandUpdated = "Marka başarıyla güncellendi!";
+        public static string BrandDeleted = "Marka başarıyla silindi!";
+
+        public static string CarImageCountWrong = "Araç resim sayısı maksimuma ulaştı (5)";
+        public static string CarImageAdded = "Araç resmi başarıyla eklendi!";
+        public static string CarImageUpdated = "Araç resmi başarıyla güncellendi!";
+        public static string CarImageDeleted = "Araç resmi başarıyla silindi!";
     }
 }
