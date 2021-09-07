@@ -8,7 +8,7 @@ namespace RentACarProject.Business.Abstract
 {
     public interface IAuthService
     {
-        IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password); //password'e gerek olmayabilir
+        IDataResult<User> Register(UserForRegisterDto userForRegisterDto);
         IDataResult<User> Login(UserForRegisterDto userForRegisterDto);
         IResult UserExists(string email);
         IDataResult<AccessToken> CreateAccessToken(User user);

@@ -1,4 +1,6 @@
-﻿namespace RentACarProject.Business.Constants
+﻿using RentACarProject.Core.Entity.Concrete;
+
+namespace RentACarProject.Business.Constants
 {
     public static class Messages
     {
@@ -25,5 +27,12 @@
         public static string UserDetailsUpdated = "Kullanıcı detayları başarıyla güncellendi";
 
         public static string WrongPassword = "Şifre hatalı!";
+        public static string AccessTokenCreated = "Access token yaratıldı!";
+        public static string UnAuthorized = "Erişim yetkisi reddedildi!";
+        public static string Authorized = "Erişim yetkisi verildi!";
+        public static string UserNotFound = "Kullanıcı bulunamadı!";
+        public static string LoginSuccessfull = "Sisteme giriş başarılı!";
+        public static string RegisterSuccessfull = "Yeni kullanıcı başarıyla kaydedildi!";
+        public static string UserAlreadyExists = "Böyle bir kullanıcı zaten mevcut!";
     }
 }
