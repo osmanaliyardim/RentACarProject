@@ -26,7 +26,7 @@ namespace RentACarProject.Business.Concrete
             _customerService = customerService;
             _tokenHelper = tokenHelper;
             _userOperationClaimService = userOperationClaimService;
-            _customerService = customerService;
+            _userService = userService;
         }
 
         public IDataResult<AccessToken> CreateAccessToken(User user)

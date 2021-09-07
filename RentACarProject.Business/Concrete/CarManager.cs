@@ -39,6 +39,7 @@ namespace RentACarProject.Business.Concrete
             return new SuccessResult(Messages.CarDeleted);
         }
 
+        [SecuredOperation("car.list")]
         [CacheAspect(120)]
         public IDataResult<List<Car>> GetAll()
         {
@@ -87,7 +88,7 @@ namespace RentACarProject.Business.Concrete
             throw new System.NotImplementedException();
         }
 
-        [SecuredOperation("car.delete,admin,moderator")]
+        [SecuredOperation("car.update,admin,moderator")]
         [ValidationAspect(typeof(CarValidator))]
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Update(Car car)

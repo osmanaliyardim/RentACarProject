@@ -10,7 +10,7 @@ namespace RentACarProject.Business.Abstract
 {
     public interface IOperationClaimService
     {
-        IDataResult<OperationClaim> GetAll();
+        IDataResult<List<OperationClaim>> GetAll();
         IDataResult<OperationClaim> GetById(int id);
         IDataResult<OperationClaim> GetByName(string name);
         IResult Add(OperationClaim operationClaim);

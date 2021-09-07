@@ -34,5 +34,9 @@ namespace RentACarProject.Business.Constants
         public static string LoginSuccessfull = "Sisteme giriş başarılı!";
         public static string RegisterSuccessfull = "Yeni kullanıcı başarıyla kaydedildi!";
         public static string UserAlreadyExists = "Böyle bir kullanıcı zaten mevcut!";
+
+        public static string OperationClaimAdded { get; internal set; }
+        public static string OperationClaimUpdated { get; internal set; }
+        public static string OperationClaimDeleted { get; internal set; }
     }
 }
