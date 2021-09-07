@@ -11,8 +11,6 @@ using RentACarProject.Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentACarProject.Business.Concrete
 {
@@ -55,15 +53,15 @@ namespace RentACarProject.Business.Concrete
             return new SuccessResult(Messages.Authorized);
         }
 
-        public IDataResult<User> Login(UserForRegisterDto userForRegisterDto)
+        public IDataResult<User> Login(UserForLoginDto userForLoginDto)
         {
-            var userToCheckResult = _userService.GetByMail(userForRegisterDto.Email);
+            var userToCheckResult = _userService.GetByMail(userForLoginDto.Email);
             if (!userToCheckResult.Success) return new ErrorDataResult<User>(userToCheckResult.Message);
 
             var userToCheck = userToCheckResult.Data;
             if (userToCheck == null) return new ErrorDataResult<User>(Messages.UserNotFound);
 
-            if (!HashingHelper.VerifyPasswordHash(userForRegisterDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
+            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
                 return new ErrorDataResult<User>(Messages.WrongPassword);
 
             return new SuccessDataResult<User>(userToCheck, Messages.LoginSuccessfull);
